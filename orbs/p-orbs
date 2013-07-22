@@ -1,0 +1,25 @@
+#!/bin/tcsh
+# -------------------------------
+# Script for gathering orbitals for partial density of states, for use with
+# dos script.
+# Calls python porb.py script
+#
+
+# Enter atoms and orbitals of interest in the string "orbs"
+# General case with atom numbers:
+#  orbs = {'Atom Sym1: Orb1 Orb2 ... OrbN, Atom# 1 Atom#2 ... Atom#N; Atom Sym2: ...' 
+#
+# Example including atom numbers:
+#  orbs = 'C: 2S 2PX 2PY 2PZ, 1 2 17; N: 3S 3PX 3PY, 24 25'
+#
+# Example without atom numbers:
+#  orbs = 'C: 2S 2PX 2PY 2PZ; S: 3S 3PX 3PY 3PZ; H: 1S 2S'
+#
+# Note that Atom# is not the atomic number, but is the number of the atom as stored
+#  by Gaussian.
+
+set filename = infile.log
+set orbs = 'C: 1S, 1 2 3; H: 2S 3PX, 6 7; S: 3S, 10' 
+ 
+python /shared/benw/scripts/orbs/porb.py $filename $orbs
+

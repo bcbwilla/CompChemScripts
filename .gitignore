@@ -1,0 +1,13 @@
+*.log
+*.csv
+*.temp
+*.tmp
+*.pbs
+*.chk
+*.geom
+*~
+testjobs/
+tests/
+g09-DOS
+g09-run
+gdv-run
